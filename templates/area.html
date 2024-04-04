@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<a href=/logout> Kirjaudu ulos </a> 
+
+
+<h1> Uuden Musiikin Palsta </h1>
+
+<h3><b><a href="/newchain/{{area_id}}"> Aloita uusi viestiketju</a></b></h3>
+
+<hr>
+{% for chain in chainlist %}
+<p><b>{{ chain[1] }}</b> Viestien määrä: {{ chain[2]}} </p>
+
+{% endfor %}
