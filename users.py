@@ -26,7 +26,6 @@ def register(username, pword):
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(text(sql), {"username": username})
     user_id = result.fetchone()[0]
-    # Set the user ID in the session
     session["user_id"] = user_id
 
 def logout():

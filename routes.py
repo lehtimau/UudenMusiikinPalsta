@@ -49,12 +49,16 @@ def area(area_id):
             chain_with_count = (chain[0], chain[1], message_count) 
             chainlist_with_count.append(chain_with_count)
         return render_template("area.html", chainlist=chainlist_with_count, area_id=area_id)
-    
+
+
+#Log out
 @app.route("/logout")
 def logout():
     users.logout()
     return redirect("/")
 
+
+#Area for admins, work in progress
 @app.route("/adminarea")
 def adminarea():
     if request.method == "GET":
@@ -63,7 +67,9 @@ def adminarea():
             return render_template("adminarea.html")
         else:
             return render_template("error.html", message="Sinulla ei ole ylläpitäjän oikeuksia!")
-        
+
+
+#New chain creation
 @app.route("/newchain/<area_id>", methods=["GET", "POST"])
 def newchain(area_id):
     if request.method == "GET":
@@ -72,7 +78,9 @@ def newchain(area_id):
         title = request.form["title"]
         chains.add_chain(title, area_id)
         return redirect("/newtitle/<area_id>")
-    
+
+
+#Content for the new chain
 @app.route("/newtitle/<area_id>", methods=["GET", "POST"])
 def newtitle(area_id):
     if request.method == "GET":
