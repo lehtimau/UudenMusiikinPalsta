@@ -1,3 +1,15 @@
 <!DOCTYPE html>
 
-Tähän tulee ylläpidon alue!
+<h1>Ylläpidon alue</h1>
+
+<h3>Lista ketjuista:</h3>
+
+<hr>
+
+{% for chain in chainlist %}
+
+<b>{{ chain[1] }}</b> Viestien määrä: {{ chain[2] }} <input type="submit" value="Poista">
+
+<hr>
+
+{% endfor %}

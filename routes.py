@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, session
-import areas, users, chains, db, message
+import areas, users, chains, db, message, adminmode
 
 
 #loginpage
@@ -64,7 +64,10 @@ def adminarea():
     if request.method == "GET":
         user_id = users.id()
         if users.checkadmin(user_id) == True:
-            return render_template("adminarea.html")
+
+            chainlist = adminmode.showchains()
+
+            return render_template("adminarea.html", chainlist=chainlist)
         else:
             return render_template("error.html", message="Sinulla ei ole ylläpitäjän oikeuksia!")
 
