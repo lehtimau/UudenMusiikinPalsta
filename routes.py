@@ -91,3 +91,11 @@ def newtitle(area_id):
         user_id = session.get("user_id")
         message.add_message(content, user_id, chain_id)
         return redirect("/index")
+    
+#Show messages in chain
+@app.route("/chain/<chain_id>")
+def chain(chain_id):
+    if request.method == "GET":
+        messagelist = message.showmessages(chain_id)
+
+        return render_template("chain.html", messagelist=messagelist)

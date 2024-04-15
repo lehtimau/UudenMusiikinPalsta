@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<a href=/logout> Kirjaudu ulos </a> 
+
+
+<h1> Uuden Musiikin Palsta </h1>
+
+
+<hr>
+{% for message in messagelist %}
+<p> {{ message[1] }} {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+<hr>
+
+{% endfor %}
