@@ -9,6 +9,7 @@
 
 <hr>
 {% for chain in chainlist %}
-<p><b>{{ chain[1] }}</b> Viestien määrä: {{ chain[2]}} </p>
+<p><b><a href="/chain/{{chain[0]}}"> {{ chain[1] }} </a> </b> Viestien määrä: {{ chain[2]}} </p>
+<hr>
 
 {% endfor %}
