@@ -1,10 +1,14 @@
 from db import db
 from sqlalchemy.sql import text
 from flask import session
-from chains import showchains
 
+
+#Function for deleting chains
 def deletechain(chain_id):
-    sql = """DELETE FROM chains WHERE chain_id = :chain_id"""
+    poistaviestit = """DELETE FROM messages WHERE chain_id = :chain_id"""
+    db.session.execute(text(poistaviestit), {'chain_id': chain_id})
+    db.session.commit()
+    sql = """DELETE FROM chains WHERE id = :chain_id"""
     db.session.execute(text(sql), {'chain_id': chain_id})
     db.session.commit() 
 

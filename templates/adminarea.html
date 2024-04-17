@@ -8,8 +8,14 @@
 
 {% for chain in chainlist %}
 
-<b>{{ chain[1] }}</b> Viestien määrä: {{ chain[2] }} <input type="submit" value="Poista">
+<b>{{ chain[1] }}</b> Viestien määrä: {{ chain[2] }} Ketjun id: {{ chain[0] }}
 
 <hr>
 
 {% endfor %}
+
+Poistettava ketju:
+<form action="/adminarea" method="post">
+<input type="number" name="chain_number">
+<input type="submit" value="Kirjaudu">
+</form>
