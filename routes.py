@@ -14,7 +14,7 @@ def loginpage():
         if users.login(username, pword) == True:
             return redirect("/index")
         else:
-            return render_template("loginerror.html")
+            return render_template("loginerror.html", message="Tarkista käyttäjätunnus ja salasana!")
 
 
 #Registerpage
@@ -25,8 +25,13 @@ def register():
     if request.method == "POST":
         username = request.form["newusername"]
         pword = request.form["newpassword"]
-        users.register(username, pword)
-        return redirect("/index")
+        if len(pword) < 4 or len(pword) > 20:
+            return render_template("loginerror.html", message="Käyttäjätunnuksen ja salasanan tulee olla vähintään 4 merkkiä ja enintään 20 merkkiä pitkiä.")
+        elif len(username) < 4 or len(username) > 20:
+            return render_template("loginerror.html", message="Käyttäjätunnuksen ja salasanan tulee olla vähintään 4 merkkiä ja enintään 20 merkkiä pitkiä.")
+        else:
+            users.register(username, pword)
+            return redirect("/index")
         
 
 #Index
@@ -59,7 +64,7 @@ def logout():
 
 
 #Area for admins, work in progress
-@app.route("/adminarea")
+@app.route("/adminarea", methods=["GET", "POST"])
 def adminarea():
     if request.method == "GET":
         user_id = users.id()
@@ -70,6 +75,10 @@ def adminarea():
             return render_template("adminarea.html", chainlist=chainlist)
         else:
             return render_template("error.html", message="Sinulla ei ole ylläpitäjän oikeuksia!")
+    if request.method == "POST":
+        chain_id = request.form["chain_number"]
+        adminmode.deletechain(chain_id)
+        return redirect("/index")
 
 
 #New chain creation
