@@ -24,7 +24,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT,
     pword TEXT, 
-    admin BOOLEAN,
+    admin BOOLEAN
 );
 
 CREATE TABLE pro_users (
