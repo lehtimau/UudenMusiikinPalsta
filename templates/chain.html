@@ -5,10 +5,11 @@
 
 <h1> Uuden Musiikin Palsta </h1>
 
+<a href="/newmessage/{{chain_id}}"> Uusi viesti </a>
 
 <hr>
 {% for message in messagelist %}
-<p> {{ message[1] }} {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+<p> {{ message[1] }} {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }} Käyttäjältä: <b>{{ message[4] }} </b></p>
 <hr>
 
 {% endfor %}

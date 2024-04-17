@@ -110,4 +110,15 @@ def chain(chain_id):
     if request.method == "GET":
         messagelist = message.showmessages(chain_id)
 
-        return render_template("chain.html", messagelist=messagelist)
+        return render_template("chain.html", messagelist=messagelist, chain_id=chain_id)
+    
+#New messages
+@app.route("/newmessage/<chain_id>", methods=["GET", "POST"])
+def newmessage(chain_id):
+    if request.method == "GET":
+        return render_template("newmessage.html", chain_id=chain_id)
+    if request.method == "POST":
+        content = request.form["content"]
+        user_id = session.get("user_id")
+        message.add_message(content, user_id, chain_id)
+        return redirect("/chain/" + chain_id)

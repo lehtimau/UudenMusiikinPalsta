@@ -23,6 +23,6 @@ def add_message(content, user_id, chain_id):
 #Show messages
 
 def showmessages(chain_id):
-    sql = "SELECT id, content, chain_id, sent_at FROM messages WHERE chain_id=:chainid"
-    result = db.session.execute(text(sql), {'chainid': chain_id})
+    sql = "SELECT messages.id, messages.content, messages.chain_id, messages.sent_at, users.username FROM messages, users WHERE chain_id=:chain_id AND users.id = messages.user_id"
+    result = db.session.execute(text(sql), {'chain_id': chain_id})
     return result.fetchall()
