@@ -9,7 +9,7 @@ ja musiikille, arvostelualue keikoille ja musiikille, myyntialue josta mainitsin
 Ylläpitäjä voi luoda "salaisen" alueen jolle voi lisätä käyttäjiä. Alue on tarkoitettu vain musiikin tekijöille ja musiikin tekemiseen liittyvään ammattimaisempaan 
 keskusteluun.
 
-Päivitys Välipalautus 2:
+## Päivitys Välipalautus 2:
 
 Sovelluksessa on nyt valmiina runko jossa on mahdollista 
 rekisteröityä, kirjautua sisään ja selata keskustelualueita.
@@ -17,7 +17,7 @@ Myös ketjuja voi luoda keskustelualueille, mutta ketjujen
 sisältöä ei ole vielä mahdollista selata eikä ketjuun ole 
 vielä mahdollista lähettää viestejä. "Ylläpitoalueella" on pohja ja sovellus osaa tarkistaa onko käyttäjä ylläpitäjä. Vain hyväksyttyjen alueen tarkistus on työn alla. Myös hakuominaisuus on vielä kesken. Ulkoasu on myös vielä aika luuranko, mutta sen tulen päivittämään sitten kun kaikki ominaisuudet ovat kunnossa.
 
-Asennusohjeet:
+## Asennusohjeet:
 
 Sinulla täytyy olla asennettuna Python3 ja PostgreSQL.
 
