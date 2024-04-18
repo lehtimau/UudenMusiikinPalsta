@@ -129,7 +129,7 @@ def newmessage(chain_id):
 @app.route("/result")
 def result():
     query = request.args["query"]
-    sql = "SELECT messages.id, content, sent_at FROM messages WHERE content LIKE :query"
+    sql = "SELECT id, content, sent_at, chain_id FROM messages WHERE content LIKE :query"
     result = db.session.execute(text(sql), {"query":"%"+query+"%"})
     messages = result.fetchall()
     return render_template("result.html", messages=messages)
