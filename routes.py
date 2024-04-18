@@ -1,6 +1,8 @@
 from app import app
 from flask import render_template, request, redirect, session
-import areas, users, chains, db, message, adminmode
+import areas, users, chains, message, adminmode
+from sqlalchemy.sql import text
+from db import db
 
 
 #loginpage
@@ -122,3 +124,12 @@ def newmessage(chain_id):
         user_id = session.get("user_id")
         message.add_message(content, user_id, chain_id)
         return redirect("/chain/" + chain_id)
+    
+#Search function
+@app.route("/result")
+def result():
+    query = request.args["query"]
+    sql = "SELECT messages.id, content, sent_at FROM messages WHERE content LIKE :query"
+    result = db.session.execute(text(sql), {"query":"%"+query+"%"})
+    messages = result.fetchall()
+    return render_template("result.html", messages=messages)

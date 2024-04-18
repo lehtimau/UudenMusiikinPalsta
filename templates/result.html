@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<h1>Uuden Musiikin Palsta</h1>
+
+<hr>
+
+{% for message in messages %}
+
+<p>{{ message[1] }} <b>{{ message[2].strftime("%Y-%m-%d %H:%M:%S") }}</b> </p>
+
+{% endfor %}
