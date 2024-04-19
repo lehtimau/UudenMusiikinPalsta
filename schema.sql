@@ -26,8 +26,3 @@ CREATE TABLE users (
     pword TEXT, 
     admin BOOLEAN
 );
-
-CREATE TABLE pro_users (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users
-);
