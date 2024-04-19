@@ -12,6 +12,13 @@ CREATE TABLE chains (
     area_id INTEGER REFERENCES areas
 );
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    pword TEXT, 
+    admin BOOLEAN
+);
+
 CREATE TABLE messages (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
@@ -20,9 +27,3 @@ CREATE TABLE messages (
     sent_at TIMESTAMP
 );
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username TEXT,
-    pword TEXT, 
-    admin BOOLEAN
-);
