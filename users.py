@@ -37,6 +37,6 @@ def checkadmin(user_id):
     admin = result.scalar()
     return admin 
 
-    
+
 def id():
     return session.get("user_id")
