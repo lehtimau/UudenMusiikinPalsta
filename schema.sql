@@ -1,7 +1,6 @@
 CREATE TABLE areas (
     id SERIAL PRIMARY KEY,
     area_name TEXT,
-    secrecy BOOLEAN,
     chain_amount INTEGER
 );
 
