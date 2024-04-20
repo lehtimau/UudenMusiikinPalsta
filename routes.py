@@ -133,3 +133,15 @@ def result():
     result = db.session.execute(text(sql), {"query":"%"+query+"%"})
     messages = result.fetchall()
     return render_template("result.html", messages=messages)
+
+#Add new area
+@app.route("/newarea", methods=["GET", "POST"])
+def newarea():
+    if request.method == "GET":
+        return render_template("newarea.html")
+    if request.method == "POST":
+        areaname = request.form["title"]
+        sql = "INSERT INTO areas (area_name, chain_amount) VALUES (:area_name, 0)"
+        db.session.execute(text(sql), {"area_name": areaname})
+        db.session.commit()
+        return redirect("/index")
