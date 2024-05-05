@@ -9,7 +9,7 @@ ja musiikille, arvostelualue keikoille ja musiikille, myyntialue josta mainitsin
 
 ## Päivitys Välipalautus 3:
 
-Sovellukseen voi nyt admin-oikeuksilla lisätä keskustelualeita ja poistaa ketjuja. Normaalikäyttäjä voi hakea viestejä, lisätä ketjuja ja lähettää viestejä. Seuraavaksi muokkaan ulkoasun lopulliseen kuntoon ja helppokäyttöisemmäksi.
+Admin-oikeuksilla käyttäjä voi lisätä ja poistaa keskustelualueita. Normaalikäyttäjä voi luoda omia ketjuja ja lähettää näihin viestejä. Kaikki käyttäjät voivat myös hakea viestejä keskustelualueelta.
 
 ## Asennusohjeet:
 
